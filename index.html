@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Parientes Restaurant – ¡Puro Sazón Mexicano &amp; Antojitos!</title>
+    <meta name="description" content="¡Órale! Ven a disfrutar de la auténtica comida mexicana en Los Parientes Restaurant, Gridley, CA. Sazón de casa, ambiente 100% familiar y los mejores platillos. ¡Pídelos en línea!">
+    <link rel="icon" id="favicon" type="image/png" href="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_250/v1791569888/LosParientesRestLOGO_bkntoe.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Lobster&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #c9184a;      /* Rojo mexicano intenso */
+            --color-primary-hover: #a51139;
+            --color-chili: #ff6b35;        /* Naranja chile */
+            --color-green: #2d6a4f;        /* Verde aguacate */
+            --color-accent: #f4a261;       /* Maíz tostado */
+            --color-dark: #1b120c;         /* Negro mole */
+            --color-cream: #fff9f0;        /* Crema artesanal */
+            --color-white: #ffffff;
+            --color-pink: #e63946;         /* Rosa mexicano */
+            --color-yellow: #ffb703;       /* Amarillo maíz */
+            --font-display: 'Rye', serif;
+            --font-accent: 'Lobster', cursive;
+            --font-sans: 'Montserrat', Arial, sans-serif;
+            --font-hand: 'Caveat', cursive;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: var(--color-cream);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(244, 162, 97, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(201, 24, 74, 0.05) 0%, transparent 25%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9184a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Cenefa Tradicional Mexicana / Colores vibrantes de papel picado */
+        .mexican-cenefa {
+            height: 12px;
+            background: repeating-linear-gradient(
+                135deg,
+                #2d6a4f,
+                #2d6a4f 25px,
+                #ffb703 25px,
+                #ffb703 50px,
+                #ff6b35 50px,
+                #ff6b35 75px,
+                #c9184a 75px,
+                #c9184a 100px
+            );
+            width: 100%;
+            position: relative;
+            z-index: 1001;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .mexican-cenefa::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                var(--color-primary) 10px,
+                var(--color-primary) 20px
+            );
+            opacity: 0.3;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 12px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 249, 240, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-shadow: 1px 1px 0 rgba(255, 183, 3, 0.4);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-dark);
+            letter-spacing: 1.2px;
+            transition: color 0.3s ease;
+            position: relative;
+            font-family: var(--font-sans);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-chili);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-chili);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .toggler-icon {
+            width: 28px;
+            height: 3px;
+            background-color: var(--color-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section - Calidez y Sabor Mexicano Real */
+        .hero {
+            position: relative;
+            height: 92vh;
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_1600/v1777151404/yiebnrm6l10wizbcdbp2.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-top: 85px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at center, transparent 0%, rgba(27, 18, 12, 0.4) 100%),
+                linear-gradient(135deg, rgba(27, 18, 12, 0.85) 0%, rgba(201, 24, 74, 0.55) 100%);
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%23ffb703' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+            background-size: 100px 20px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: var(--color-white);
+            padding: 0 20px;
+            max-width: 950px;
+        }
+
+        .hero-subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-family: var(--font-hand);
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            transform: rotate(-1deg);
+        }
+
+        .line-decoration {
+            width: 45px;
+            height: 2px;
+            background-color: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 20px;
+            animation: floatLogo 4s ease-in-out infinite;
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.8));
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .hero-logo {
+            max-height: 150px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 58px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 
+                3px 3px 0 var(--color-primary),
+                5px 5px 12px rgba(0, 0, 0, 0.8);
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .hero-address {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Botón de Ordenar Online Al Estilo Antojo Mexicano */
+        .custom-order-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6b35, #c9184a);
+            color: #ffffff;
+            padding: 16px 42px;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            box-shadow: 
+                0 8px 25px rgba(201, 24, 74, 0.5),
+                inset 0 -3px 0 rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-order-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .custom-order-btn:hover::before {
+            left: 100%;
+        }
+
+        .custom-order-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.7);
+            background: linear-gradient(135deg, #ff7b47, #d91c52);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0 rgba(255, 183, 3, 0.3);
+        }
+
+        .section-title.centered {
+            text-align: center;
+        }
+
+        .section-subtitle-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .section-subtitle-container.centered {
+            justify-content: center;
+        }
+
+        .line-small {
+            width: 45px;
+            height: 3px;
+            background-color: var(--color-primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            font-family: var(--font-accent);
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 110px 0;
+            background-color: var(--color-cream);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--color-primary) 0px,
+                var(--color-primary) 20px,
+                var(--color-yellow) 20px,
+                var(--color-yellow) 40px,
+                var(--color-green) 40px,
+                var(--color-green) 60px
+            );
+            opacity: 0.4;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #423831;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(27,18,12,0.15);
+            transition: transform 0.4s ease;
+            border: 5px solid var(--color-white);
+            outline: 2px solid var(--color-accent);
+        }
+
+        .about-image:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+
+        .about-image:nth-child(2) {
+            margin-top: 45px;
+            transform: rotate(2deg);
+        }
+
+        .about-image:nth-child(2):hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 110px 0;
+            background-color: #f7efe2;
+            border-top: 2px dashed #e8d7c1;
+            border-bottom: 2px dashed #e8d7c1;
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 183, 3, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(201, 24, 74, 0.06) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        #gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(27,18,12,0.15);
+            aspect-ratio: 1 / 1;
+            border: 6px solid var(--color-white);
+            outline: 2px solid var(--color-accent);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-img-wrapper:nth-child(odd) {
+            transform: rotate(-1.5deg);
+        }
+
+        .gallery-img-wrapper:nth-child(even) {
+            transform: rotate(1.5deg);
+        }
+
+        .gallery-img-wrapper:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 15px 35px rgba(201, 24, 74, 0.25);
+            z-index: 2;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-img-wrapper:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 992px) {
+            #gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            #gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 110px 0;
+            background-color: var(--color-cream);
+            position: relative;
+        }
+
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                135deg,
+                var(--color-primary),
+                var(--color-primary) 15px,
+                var(--color-yellow) 15px,
+                var(--color-yellow) 30px,
+                var(--color-green) 30px,
+                var(--color-green) 45px
+            );
+            opacity: 0.6;
+        }
+
+        .info-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(27,18,12,0.1);
+            border-radius: 20px;
+            text-align: center;
+            border-top: 8px solid var(--color-primary);
+            border-bottom: 8px solid var(--color-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 5% 5%, rgba(255, 183, 3, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 95% 95%, rgba(201, 24, 74, 0.08) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-item {
+            padding: 25px 20px;
+            background: #fdfaf6;
+            border-radius: 14px;
+            transition: transform 0.3s ease;
+            border: 2px solid #f2e6d8;
+            position: relative;
+        }
+
+        .info-item::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(201,24,74,0.12);
+            border-color: var(--color-accent);
+        }
+
+        .info-item h4 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .info-item p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-dark);
+            padding: 80px 0 40px;
+            color: #d1cbc5;
+            border-top: 6px solid var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(201, 24, 74, 0.06) 0%, transparent 25%);
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 0 rgba(255, 183, 3, 0.3);
+        }
+
+        .footer-col p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-images {
+                order: -1;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 95px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--color-cream);
+                padding: 30px;
+                gap: 20px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                border-bottom: 4px solid var(--color-primary);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .info-box {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f7efe2;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-hover);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+    </style>
+<script>window.MENU_TECH_STATE = {"lang":"en","showReservations":false,"showAbout":true,"showPromo":false,"showGallery":true,"showCatering":false,"showInfo":true,"showDelivery":false,"cuid":"0000","ruid":"0000","title":"Los Parientes Restaurant","logoImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569888/LosParientesRestLOGO_bkntoe.png","heroAddress":"484 CA-99, Gridley, CA 95948","heroImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569935/unnamed_43_kbyyms.webp","aboutImg1":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569974/unnamed_42_xdkc8i.webp","aboutImg2":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569976/unnamed_44_njfxx0.webp","promoBg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","cateringBg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","deliveryImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","gallery":["https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569989/unnamed_41_qbt3cj.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569990/unnamed_40_cn3kfl.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569990/unnamed_38_kypxew.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569991/unnamed_37_sxlpaq.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569991/unnamed_36_narkfe.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569992/unnamed_35_aimc5c.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569993/unnamed_34_nh1fwy.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569993/unnamed_32_adgfop.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569993/unnamed_33_xkppcp.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569994/unnamed_31_o3yth6.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569994/unnamed_30_jz9hxt.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569995/unnamed_29_fpddvx.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569995/unnamed_28_gcpnrm.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569996/unnamed_27_cchlat.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569996/unnamed_24_ry1iph.webp","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791569997/unnamed_25_nidphe.webp"],"contact":{"phone":"530-788-5764","address":"484 CA-99, Gridley, CA 95948","hours":"Tuesday – Friday: 9:00 AM – 8:00 PM Saturday – Sunday: 8:00 AM – 8:00 PM"},"socials":[{"platform":"instagram","url":"https://www.instagram.com/los.parientes.rest/"},{"platform":"facebook","url":"https://www.facebook.com/people/Los-parientes-restaurant/61577771831812/?locale=es_LA"},{"platform":"twitter","url":"https://www.tiktok.com/@los.parientes.res"}],"paragraphs":{"about":"Desde el 2 de julio de 2025, Los Parientes Restaurant Mexican abrió sus puertas para compartir el auténtico sabor de México. Con el propósito de ofrecer deliciosos platillos, un ambiente familiar y una atención llena de calidez, este restaurante busca que cada visita se convierta en una experiencia especial.\n\n¡Los Parientes Restaurant Mexican, donde el sabor de México se disfruta en familia! ","promo":"2 Medium Pizzas\n\nSoft Drinks\n\nGarlic Bread or Patato Wedges\n\nSalad to share\n\nHope you are hungry. Buy one regular priced pizza online and get a second pizza totally free!\n\nOnline only!\n\n6 Delicious regular size pizzas to choose from: Margherita, Capricciosa, Prosciutto e Funghi, Diavola, Calzone, Primavera.","catering":"Restaurant Pronto can cater to any party or event irrespective of how big or small. We specialize in catering with personalised service and special menus on request. In our menu palette, you'll discover unique and sophisticated tastes - all of which will help you uncover the true greatness of the mexican restaurant.\n\nTell us about your event at office@pronto-wp.com","delivery":"Looking for food delivery nearby? Not everybody knows or has the time to prepare tasty food.\n\nWhen you want to get served like a king then food delivery from restaurant Pronto will be your best choice.\n\nSimply select \"Delivery\" at the checkout screen and we hope you'll appreciate our food delivery service."},"titles":{"about-title":"We are Los Parientes Restaurant","about-subtitle":"About Us","promo1-title":"Best Friends Deal","promo1-subtitle":"Sharing Is Caring","promo2-title":"Buy 1 Get 1 FREE","promo2-subtitle":"This Week Only","promo3-title":"Awesome Foursome","promo3-subtitle":"Sundays Only","gallery-title":"Delicious Mexican Food","gallery-subtitle":"Love At First Bite","catering-title":"Catering","catering-subtitle":"Party Time","delivery-title":"Food Delivery in NY","delivery-subtitle":"Get Served Like a King","info-title":"Information","info-subtitle":"Visit Us"},"info":{"hours":"Tuesday – Friday: 9:00 AM – 8:00 PM\nSaturday – Sunday: 8:00 AM – 8:00 PM","phone":"530-788-5764","address":"484 CA-99, Gridley, CA 95948"}};</script>
+</head>
+<body>
+    <!-- Cenefa Mexicana Superior Estilo Papel Picado -->
+    <div class="mexican-cenefa"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="navbar-brand" id="nav-brand">Los Parientes Restaurant</a>
+            <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#hero-section" class="nav-link active" data-es="Inicio" data-en="Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about-section" class="nav-link" data-es="Nosotros" data-en="About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery-section" class="nav-link" data-es="Galería" data-en="Gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#info-section" class="nav-link" data-es="Contacto" data-en="Contact">Contact</a>
+                </li>
+                <li class="nav-item" style="display: flex; align-items: center; gap: 10px; margin-left: 10px; border-left: 1px solid #ddd; padding-left: 20px;">
+                    <span id="lang-es" style="cursor: pointer; font-weight: 700; color: var(--color-primary); font-size: 13px;">ES</span>
+                    <span style="color: #bbb;">|</span>
+                    <span id="lang-en" style="cursor: pointer; font-weight: 400; color: #999; font-size: 13px;">EN</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_250/v1791569888/LosParientesRestLOGO_bkntoe.png" id="hero-logo" alt="Los Parientes Restaurant Logo" class="hero-logo" width="150" height="150">
+            </div>
+            <h2 class="hero-subtitle">
+                <span class="line-decoration"></span>
+                <span data-es="¡Con el auténtico sazón de la familia!" data-en="Authentic Mexican Flavors">¡Con el auténtico sazón de la familia!</span>
+                <span class="line-decoration"></span>
+            </h2>
+            <h1 class="hero-title" data-es="El Sabor de México hasta tu mesa" data-en="The True Taste of Mexico">El Sabor de México hasta tu mesa</h1>
+            <div class="hero-buttons">
+                <!-- Botón de Ordenar Online Personalizado -->
+                <a href="https://losparientesrestaurant.onlineordering.io/en?locationId=1581592&orderMode=in_store_pickup" target="_blank" class="custom-order-btn" data-es="¡Pídelo en Línea Aquí!" data-en="Order Online Now!">¡Pídelo en Línea Aquí!</a>
+            </div>
+            <p class="hero-address" id="hero-address">
+                <svg style="width:18px;height:18px;fill:var(--color-chili)" viewBox="0 0 24 24"><path d="M12,2C15.31,2 18,4.69 18,8C18,12.5 12,22 12,22C12,22 6,12.5 6,8C6,4.69 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6Z"/></svg>
+                484 CA-99, Gridley, CA 95948
+            </p>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title" id="about-title" data-es="Somos Los Parientes Restaurant" data-en="We are Los Parientes Restaurant">Somos Los Parientes Restaurant</h2>
+                    <span class="section-subtitle-container">
+                        <span class="line-small"></span>
+                        <span class="section-subtitle" id="about-subtitle" data-es="Nuestra Historia" data-en="About Us">Nuestra Historia</span>
+                    </span>
+                    <p id="about-p1">Desde el 2 de julio de 2025, Los Parientes Restaurant abrió sus puertas con los brazos abiertos para compartir el verdadero sabor de México. Queremos que cada bocado te haga sentir en casa, con ese sazón casero, un ambiente familiar y una atención llena de cariño y buena vibra.</p>
+                    <p id="about-p2">El secreto de nuestra cocina es muy fácil: puro amor por lo que hacemos, ingredientes frescos de primera calidad y recetas tradicionales que guardan la magia de nuestra hermosa cultura.</p>
+                    <p id="about-p3">¡Los Parientes Restaurant, donde la familia y el buen comer se juntan!</p>
+                </div>
+                <div class="about-images">
+                    <img id="about-img-1" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1777151404/yiebnrm6l10wizbcdbp2.jpg" alt="Platillo Mexicano 1" class="about-image" loading="lazy" width="400" height="380">
+                    <img id="about-img-2" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1777151404/yiebnrm6l10wizbcdbp2.jpg" alt="Platillo Mexicano 2" class="about-image" loading="lazy" width="400" height="380">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery-section">
+        <div class="container">
+            <h2 class="section-title centered" id="gallery-title" data-es="Antojitos y Delicias de México" data-en="Delicious Mexican Food">Antojitos y Delicias de México</h2>
+            <span class="section-subtitle-container centered">
+                <span class="line-small"></span>
+                <span class="section-subtitle" id="gallery-subtitle" data-es="¡Amor al primer bocado!" data-en="Love At First Bite">¡Amor al primer bocado!</span>
+            </span>
+            <div id="gallery-container">
+                <!-- Gallery items injected dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="info-section">
+        <div class="container">
+            <div class="info-box">
+                <h2 class="section-title centered" id="info-title" data-es="Ven a Visitarnos" data-en="Information">Ven a Visitarnos</h2>
+                <span class="section-subtitle-container centered">
+                    <span class="line-small"></span>
+                    <span class="section-subtitle" id="info-subtitle" data-es="Te esperamos con gusto" data-en="Visit Us">Te esperamos con gusto</span>
+                </span>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4 data-es="Horarios" data-en="Opening Hours">
+                            <svg style="width:20px;height:20px;fill:var(--color-primary)" viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                            Horarios
+                        </h4>
+                        <p id="info-hours">Tuesday – Friday: 9:00 AM – 8:00 PM<br>Saturday – Sunday: 8:00 AM – 8:00 PM</p>
+                    </div>
+                    <div class="info-item">
+                        <h4 data-es="Teléfono" data-en="Phone">
+                            <svg style="width:20px;height:20px;fill:var(--color-primary)" viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                            Teléfono
+                        </h4>
+                        <p id="info-phone">530-788-5764</p>
+                    </div>
+                    <div class="info-item">
+                        <h4 data-es="Ubicación" data-en="Address">
+                            <svg style="width:20px;height:20px;fill:var(--color-primary)" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/></svg>
+                            Ubicación
+                        </h4>
+                        <p id="info-address">484 CA-99, Gridley, CA 95948</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-title" data-es="¡Escríbenos o Visítanos!" data-en="Contact Us">¡Escríbenos o Visítanos!</h4>
+                    <p id="footer-address">484 CA-99, Gridley, CA 95948</p>
+                    <p id="footer-phone">Teléfono: 530-788-5764</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-es="Horarios de Atención" data-en="Opening Hours">Horarios de Atención</h4>
+                    <p id="footer-hours">Tuesday – Friday: 9:00 AM – 8:00 PM<br>Saturday – Sunday: 8:00 AM – 8:00 PM</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-es="Síguenos en Redes" data-en="Follow Us">Síguenos en Redes</h4>
+                    <div id="social-icons" style="margin-top: 15px; display: flex; gap: 15px;">
+                        <!-- Social Networks dynamically added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="mexican-cenefa" style="margin-bottom: 30px; opacity: 0.8; height: 8px;"></div>
+            <div style="text-align: center; font-size: 14px; color: #b5aca4;">
+                © 2015 - <span id="copyright-year"></span> Powered by <a href="https://menutech.xyz" target="_blank" style="color: #ff6b35; font-weight: 700;">Menutech</a>. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* Menutech bilingual and dynamic content logic */
+        const optimizeCloudinaryUrl = (url, options = {}) => {
+            if (!url || typeof url !== 'string' || !url.includes('res.cloudinary.com')) return url;
+            const [baseUrl, hash] = url.split('#');
+            if (!baseUrl.includes('/upload/')) return url;
+            const parts = baseUrl.split('/upload/');
+
+            let pathSegments = parts[1].split('/');
+            if (pathSegments.length > 1) {
+                const firstSegment = pathSegments[0];
+                const isVersion = /^v\d+$/.test(firstSegment);
+                const isTransformation = !isVersion && (firstSegment.includes('_') || firstSegment.includes(','));
+                if (isTransformation) {
+                    pathSegments.shift();
+                }
+            }
+            const cleanPath = pathSegments.join('/');
+
+            let transformations = ['f_auto', 'q_auto:eco', 'dpr_auto'];
+            if (options.width) {
+                transformations.push(`w_${options.width}`);
+            } else {
+                transformations.push('w_400');
+            }
+            if (options.height) transformations.push(`h_${options.height}`);
+            if (options.crop) transformations.push(`c_${options.crop}`);
+            const transformationString = transformations.join(',');
+            const optimizedUrl = `${parts[0]}/upload/${transformationString}/${cleanPath}`;
+            return hash ? `${optimizedUrl}#${hash}` : optimizedUrl;
+        };
+
+        const SOCIAL_ICONS = {
+            instagram: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>`,
+            facebook: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>`,
+            whatsapp: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.44 0-2.85-.38-4.1-1.11l-.29-.17-3.06.81.82-2.98-.19-.3a8.22 8.22 0 0 1-1.26-4.48c0-4.54 3.7-8.23 8.24-8.23m-3.85 3.09c-.21 0-.45.03-.66.24-.21.21-.81.79-.81 1.94s.84 2.25.96 2.41c.12.16 1.63 2.49 3.96 3.5.55.24 1 .38 1.34.49.56.18 1.07.15 1.48.09.45-.06 1.39-.57 1.58-1.12.2-.55.2-1.02.14-1.12-.06-.1-.21-.16-.45-.27-.24-.12-1.39-.69-1.61-.77-.22-.08-.37-.12-.53.12-.16.24-.61.77-.75.93-.14.16-.27.18-.51.06-.24-.12-.99-.36-1.89-1.16-.7-.62-1.17-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.15.16-.25.24-.42.08-.17.04-.32-.02-.45-.06-.13-.53-1.28-.73-1.75-.19-.48-.39-.41-.53-.42l-.44-.01Z"/></svg>`,
+            tiktok: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M16.6 5.82C15.34 5.81 14.16 5.25 13.34 4.3 12.51 3.35 12.13 2.1 12.29 0.86H9.08V16.32C9.08 18.06 7.66 19.48 5.92 19.48C4.18 19.48 2.76 18.06 2.76 16.32C2.76 14.58 4.18 13.16 5.92 13.16C6.35 13.16 6.77 13.25 7.15 13.43V10.15C6.75 10.05 6.34 10 5.92 10C2.42 10 -0.42 12.84 -0.42 16.34C-0.42 19.84 2.42 22.68 5.92 22.68C9.42 22.68 12.26 19.84 12.26 16.34V8.58C13.68 9.58 15.39 10.08 17.16 10.01V6.82C16.98 6.82 16.79 6.82 16.6 6.82V5.82Z"/></svg>`
+        };
+
+        let currentLang = 'es';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+
+            const esBtn = document.getElementById('lang-es');
+            const enBtn = document.getElementById('lang-en');
+            if (!esBtn || !enBtn) return;
+
+            if (lang === 'es') {
+                esBtn.style.fontWeight = '700'; esBtn.style.color = 'var(--color-primary)';
+                enBtn.style.fontWeight = '400'; enBtn.style.color = '#999';
+            } else {
+                enBtn.style.fontWeight = '700'; enBtn.style.color = 'var(--color-primary)';
+                esBtn.style.fontWeight = '400'; esBtn.style.color = '#999';
+            }
+        }
+
+        function updateUI(data) {
+            if (!data) return;
+            if (data.lang) {
+                applyLanguage(data.lang);
+            }
+            if (data.title) {
+                const navBrand = document.getElementById('nav-brand');
+                if (navBrand) navBrand.textContent = data.title;
+            }
+            if (data.logoImg) {
+                const logo = document.getElementById('hero-logo');
+                const favicon = document.getElementById('favicon');
+                const optimizedLogo = optimizeCloudinaryUrl(data.logoImg, { width: 250 });
+                if (logo) logo.src = optimizedLogo;
+                if (favicon) favicon.href = optimizedLogo;
+            }
+            if (data.heroAddress !== undefined) {
+                const addr = document.getElementById('hero-address');
+                if (addr) addr.innerHTML = `<svg style="width:18px;height:18px;fill:var(--color-chili)" viewBox="0 0 24 24"><path d="M12,2C15.31,2 18,4.69 18,8C18,12.5 12,22 12,22C12,22 6,12.5 6,8C6,4.69 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6Z"/></svg> ${data.heroAddress}`;
+            }
+
+            if (data.heroImg) {
+                const heroSection = document.getElementById('hero-section');
+                if (heroSection) heroSection.style.backgroundImage = `url('${optimizeCloudinaryUrl(data.heroImg, { width: 1600 })}')`;
+            }
+
+            if (data.aboutImg1) {
+                const img = document.getElementById('about-img-1');
+                if (img) img.src = optimizeCloudinaryUrl(data.aboutImg1, { width: 600 });
+            }
+            if (data.aboutImg2) {
+                const img = document.getElementById('about-img-2');
+                if (img) img.src = optimizeCloudinaryUrl(data.aboutImg2, { width: 600 });
+            }
+
+            if (data.info) {
+                const hoursEl = document.getElementById('info-hours');
+                const phoneEl = document.getElementById('info-phone');
+                const addressEl = document.getElementById('info-address');
+
+                if (hoursEl) hoursEl.innerHTML = (data.info.hours || '').replace(/\n/g, '<br>');
+                if (phoneEl) phoneEl.textContent = data.info.phone || '';
+                if (addressEl) addressEl.textContent = data.info.address || '';
+
+                const fHours = document.getElementById('footer-hours');
+                const fPhone = document.getElementById('footer-phone');
+                const fAddress = document.getElementById('footer-address');
+                if (fHours) fHours.innerHTML = (data.info.hours || '').replace(/\n/g, '<br>');
+                if (fPhone) fPhone.textContent = (data.info.phone ? (currentLang === 'es' ? 'Teléfono: ' : 'Phone: ') + data.info.phone : '');
+                if (fAddress) fAddress.textContent = data.info.address || '';
+            }
+
+            if (data.socials) {
+                const container = document.getElementById('social-icons');
+                if (container) {
+                    container.innerHTML = data.socials.map(s => {
+                        let platform = s.platform;
+                        if (platform === 'twitter') platform = 'tiktok';
+                        return `
+                            <a href="${s.url}" target="_blank" style="color: #d1cbc5; transition: color 0.3s;" onmouseover="this.style.color='#ff6b35'" onmouseout="this.style.color='#d1cbc5'">
+                                ${SOCIAL_ICONS[platform] || ''}
+                            </a>
+                        `;
+                    }).join('');
+                }
+            }
+
+            if (data.gallery) {
+                const container = document.getElementById('gallery-container');
+                if (container) {
+                    container.innerHTML = data.gallery.map(img => `
+                        <div class="gallery-img-wrapper">
+                            <img src="${optimizeCloudinaryUrl(img, { width: 500, height: 500, crop: 'fill' })}" class="gallery-img" loading="lazy" width="400" height="400">
+                        </div>
+                    `).join('');
+                }
+            }
+
+            if (data.titles) {
+                Object.keys(data.titles).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = data.titles[id];
+                });
+            }
+
+            if (data.paragraphs) {
+                const sectionMap = {
+                    about: ['about-p1', 'about-p2', 'about-p3']
+                };
+
+                Object.keys(data.paragraphs).forEach(sectionKey => {
+                    const content = data.paragraphs[sectionKey] || "";
+                    const segments = content.split('\n\n');
+                    const elementIds = sectionMap[sectionKey];
+
+                    if (elementIds) {
+                        elementIds.forEach((id, index) => {
+                            const el = document.getElementById(id);
+                            if (el) {
+                                const segment = segments[index] || "";
+                                el.textContent = segment;
+                                el.style.display = segment.trim() === "" ? "none" : "";
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'UPDATE_CONTENT') {
+                updateUI(event.data.data);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (window.MENU_TECH_STATE) {
+                updateUI(window.MENU_TECH_STATE);
+            }
+
+            const esBtn = document.getElementById('lang-es');
+            const enBtn = document.getElementById('lang-en');
+            if (esBtn) esBtn.addEventListener('click', () => applyLanguage('es'));
+            if (enBtn) enBtn.addEventListener('click', () => applyLanguage('en'));
+        });
+
+        // Navbar Toggle for Mobile
+        const navbarToggler = document.getElementById('navbar-toggler');
+        const navMenu = document.getElementById('nav-menu');
+
+        navbarToggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icons = navbarToggler.querySelectorAll('.toggler-icon');
+            icons.forEach((icon, index) => {
+                if (navMenu.classList.contains('active')) {
+                    if (index === 0) {
+                        icon.style.transform = 'rotate(45deg) translate(7px, 7px)';
+                    } else if (index === 1) {
+                        icon.style.opacity = '0';
+                    } else if (index === 2) {
+                        icon.style.transform = 'rotate(-45deg) translate(7px, -7px)';
+                    }
+                } else {
+                    icon.style.transform = 'none';
+                    icon.style.opacity = '1';
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navbarToggler.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icons = navbarToggler.querySelectorAll('.toggler-icon');
+                icons.forEach(icon => {
+                    icon.style.transform = 'none';
+                    icon.style.opacity = '1';
+                });
+            }
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '12px 0';
+                navbar.style.boxShadow = '0 6px 25px rgba(0, 0, 0, 0.12)';
+            } else {
+                navbar.style.padding = '16px 0';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
